@@ -1,97 +1,98 @@
 @extends('layouts.main')
 @section('container')
-{{-- div main --}}
-<div>
-    {{-- div banner --}}
-    <div class="h-screen w-full flex items-center">
-        <div class="w-full h-3/5 bg-cover bg-center p-44" style="background-image: url(img/bg-banner.jpg)">
-            <div class="text-right">
-                <h1 class="font-reguler tracking-wider text-neutral text-5xl leading-tight">Selamat Datang <br>di <span class="font-medium">Pixel Studio<span></h1>
-                <p class="text-neutral text-lg tracking-wide font-reguler">Senang bertemu dengan Anda, <br> abadikan momen terbaikmu di studio kami<br>Tunggu apalagi!</p>
+    {{-- div main --}}
+    <div id="home">
+        {{-- div banner --}}
+        <div class="h-screen w-full flex items-center">
+            <div class="w-full h-3/5 bg-cover bg-center p-44" style="background-image: url(img/bg-banner.jpg)">
+                <div class="text-right">
+                    <h1 class="font-reguler tracking-wider text-neutral text-5xl leading-tight">Selamat Datang <br>di <span class="font-medium">Pixel Studio<span></h1>
+                    <p class="text-neutral text-lg tracking-wide font-reguler">Senang bertemu dengan Anda, <br> abadikan momen terbaikmu di studio kami<br>Tunggu apalagi!</p>
+                </div>
             </div>
         </div>
-    </div>
-    {{-- end div banner --}}
+        {{-- end div banner --}}
 
-    {{-- div studio --}}
-    <div id="studio" class="px-44 mb-36">
-        <div class="flex flex-col justify-center items-center">
-            <div>
-                <h1 class="text-3xl mb-20">Studio</h1>
-            </div>
-            <div class="flex flex-nowrap justify-start items-center w-full overflow-x-auto scrollbar-hide p-4">
-                {{-- content studio --}}
-                @foreach ($studios as $studio)
-                    <div class="w-60 h-96 shadow-lg mr-3.5">
-                        <div class="w-full h-60 bg-cover bg-center" style="background-image: url({{ asset('storage/' .$studio->foto) }})"></div>
-                        <div class="p-3">
-                            <div class="mb-4">
-                                <h2 class="text-lg font-medium">{{ $studio->nama_studio }}</h2>
-                            </div>
-                            <div>
-                                <p class="text-sm truncate">{{ $studio->deskripsi_studio }}</p>
-                            </div>
-                            <div>
-                                <a href="home/studio/{{ $studio->id }}" class="text-sm text-blue-700">Booking Sekarang -></a>
-                            </div>
-                            <div>
-                                <a href="home/studio/jadwal/{{ $studio->id }}" class="text-sm text-blue-700">Lihat Jadwal -></a>
+        {{-- div studio --}}
+        <div id="studio" class="px-44 mb-36">
+            <div class="flex flex-col justify-center items-center">
+                <div>
+                    <h1 class="text-3xl mb-20">Studio</h1>
+                </div>
+                <div class="flex flex-nowrap justify-start items-center w-full overflow-x-auto p-4">
+                    {{-- content studio --}}
+                    @foreach ($studios as $studio)
+                        <div class="w-60 h-96 shadow-lg mr-3.5">
+                            <div class="w-full h-60 bg-cover bg-center" style="background-image: url({{ asset('storage/' .$studio->foto) }})"></div>
+                            <div class="p-3">
+                                <div class="mb-4">
+                                    <h2 class="text-lg font-medium">{{ $studio->nama_studio }}</h2>
+                                    <small>{{ $studio->ruangan_studio }}</small>
+                                </div>
+                                <div>
+                                    <p class="text-sm truncate">{{ $studio->deskripsi_studio }}</p>
+                                </div>
+                                <div>
+                                    <a href="home/studio/{{ $studio->id }}" class="text-sm text-blue-700">Booking Sekarang -></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
-                {{-- end content studio --}}
+                    @endforeach
+                    {{-- end content studio --}}
+                </div>
             </div>
         </div>
-    </div>
-    {{-- {{-- end div studio --}}
+        {{-- {{-- end div studio --}}
 
-    {{-- div galeri --}}
-    <div id="galeri" class="px-44">
-        <div>
-            <h1 class="text-3xl mb-10 text-center">Galeri</h1>
-        </div>
-        <div>
-            <div class="flex justify-center items-center space-x-4 w-full">
-                <div class="w-1/2 h-96 bg-secondary bg-cover bg-center" style="background-image: url(/img/galeri-1.jpg)"></div>
-                <div class="w-1/2 h-96 bg-secondary bg-cover bg-center" style="background-image: url(/img/galeri-3.jpg)"></div>
-            </div>
-            <div class="w-full h-96 bg-secondary bg-cover bg-center my-4" style="background-image: url(/img/galeri-2.jpg)"></div>
-            <div class="flex justify-center items-center space-x-4 w-full">
-                <div class="w-1/2 h-96 bg-secondary bg-cover bg-center" style="background-image: url(/img/galeri-4.jpg)"></div>
-                <div class="w-1/2 h-96 bg-secondary bg-cover bg-center" style="background-image: url(/img/galeri-5.jpg)"></div>
-            </div>
-        </div>
-    </div>
-
-    {{-- div pricelis --}}
-    <div id="layanan" class="px-44 mb-36">
-        <div class="flex flex-col justify-center items-center">
+        {{-- div galeri --}}
+        <div id="galeri" class="px-44">
             <div>
-                <h1 class="text-3xl mb-20 mt-20">Layanan</h1>
+                <h1 class="text-3xl mb-10 text-center">Galeri</h1>
             </div>
-            <div class="flex flex-nowrap justify-start items-center w-full overflow-x-auto p-4">
-                {{-- content pricelist --}}
-                @foreach ($pakets as $paket)
-                    <div class="w-64 h-96 shadow-lg mr-3.5 py-4 px-2">
-                        <div class="p-3">
-                            <div>
-                                <h2 class="text-xl text-center py-6">{{ $paket->nama_paket }}</h2>
-                            </div>
-                            <div>
-                                <p class="text-sm text-center">{{ $paket->detail_paket }}</p>
-                            </div>
-                            <div>
-                                <h1 class="text-center font-medium text-xl text-secondary mt-20">RP. {{ $paket->harga_paket }}</h1>
+            <div>
+                <div class="flex justify-center items-center space-x-4 w-full">
+                    <div class="w-1/2 h-96 bg-secondary bg-cover bg-center" style="background-image: url(/img/galeri-1.jpg)"></div>
+                    <div class="w-1/2 h-96 bg-secondary bg-cover bg-center" style="background-image: url(/img/galeri-3.jpg)"></div>
+                </div>
+                <div class="w-full h-96 bg-secondary bg-cover bg-center my-4" style="background-image: url(/img/galeri-2.jpg)"></div>
+                <div class="flex justify-center items-center space-x-4 w-full">
+                    <div class="w-1/2 h-96 bg-secondary bg-cover bg-center" style="background-image: url(/img/galeri-4.jpg)"></div>
+                    <div class="w-1/2 h-96 bg-secondary bg-cover bg-center" style="background-image: url(/img/galeri-5.jpg)"></div>
+                </div>
+            </div>
+        </div>
+
+        {{-- div pricelis --}}
+        <div id="layanan" class="px-44 mb-36">
+            <div class="flex flex-col justify-center items-center">
+                <div>
+                    <h1 class="text-3xl mb-20 mt-20">Layanan</h1>
+                </div>
+                <div class="flex flex-nowrap justify-start items-center w-full overflow-x-auto p-4">
+                    {{-- content pricelist --}}
+                    @foreach ($pakets as $paket)
+                        <div class="w-64 h-96 shadow-lg mr-3.5 py-4 px-2">
+                            <div class="p-3">
+                                <div>
+                                    <h2 class="text-xl text-center py-6">{{ $paket->nama_paket }}</h2>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-center">{{ $paket->detail_paket }}</p>
+                                </div>
+                                <div>
+                                    <h1 class="text-center font-medium text-xl text-secondary mt-20">RP. {{ $paket->harga_paket }}</h1>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
-                {{-- end content pricelist --}}
+                    @endforeach
+                    {{-- end content pricelist --}}
+                </div>
             </div>
         </div>
+        {{-- {{-- end div pricelist --}}
+
     </div>
-    {{-- {{-- end div pricelist --}}
+    {{-- end div main --}}
 
     {{-- div about --}}
     <div class="px-44 mb-40">
@@ -105,8 +106,5 @@
         </div>
     </div>
     {{-- end div about --}}
-
-</div>
-{{-- end div main --}}
-
+    
 @endsection

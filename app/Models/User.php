@@ -19,6 +19,11 @@ class User extends Authenticatable
      */
     protected $guarded = [];
 
+    public function booking()
+    {
+        return $this->hasMany(Booking::class);
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

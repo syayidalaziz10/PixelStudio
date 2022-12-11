@@ -11,11 +11,11 @@ module.exports = {
         'poppins': ['Poppins'],
       },
       colors: {
-        secondary: '#2F2D2D',
-        primary: '#D9D9D9',
-        neutral: '#FFFF',
+        secondary: '#2F2D2D!important',
+        primary: '#F1F5F8!important',
+        neutral: '#FFFF!important',
       }
     },
   },
-  plugins: [],
+  plugins: [require('tailwind-scrollbar-hide')],
 }

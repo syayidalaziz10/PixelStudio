@@ -1,10 +1,10 @@
 @extends('layouts.main')
 @section('container')
-<div class="bg-primary h-screen w-screen">
+<div class="bg-primary h-screen w-screen" style="background-image: url(/img/banner.png)">
     <div class="flex items-center h-full justify-center">
-        <div class="w-1/4 h-4/6 bg-cover max-w-full bg-center" style="background-image: url(img/bg-login.jpg)">
-        </div>
-        <div class="px-10 py-16 w-1/5 h-4/6 bg-neutral">
+        {{-- <div class="w-1/4 h-4/6 bg-cover max-w-full bg-center" style="background-image: url(img/bg-home.jpg)">
+        </div> --}}
+        <div class="px-10 py-16 bg-neutral">
             @if(session()->has('messageError'))
                 <div class="bg-red-100 border border-red-400 text-red-700 mb-2 p-1 rounded relative" role="alert">
                     <small class="italic text-xs px-3">{{ session('messageError') }}</small>
@@ -41,8 +41,8 @@
                     @error    ('password') border-red-500 @enderror" >
                     @error('password')<div class="text-xs italic text-red-600">{{ $message }}</div>@enderror
                     <a href="" class="block text-right text-xs my-2">Lupa Password?</a>
-                    <button type="submit" class="bg-secondary text-sm text-neutral mx-16 mt-6 mb-7 w-1/2 p-1 rounded">Masuk</button>
-                    <small class="block text-center">Belum Punya Akun? <a href="/registrasi" class="font-medium">Daftar</a></small>
+                    <button type="submit" class="bg-secondary text-sm  text-neutral mt-6 mb-7 w-full py-2 px-3 rounded">Masuk</button>
+                    <small class="block text-center">Belum Punya Akun? <a href="/registrasi" class="font-medium hover:text-blue-600 hover:underline">Daftar</a></small>
                 </form>
             </div>
         </div>

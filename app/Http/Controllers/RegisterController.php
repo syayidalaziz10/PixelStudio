@@ -10,7 +10,7 @@ class RegisterController extends Controller
     public function create()
     {
         return view('login.cusRegistrasi', [
-            'title' => 'Pixel Studio | Register'
+            'title' => 'Daftar | Pixel Studio'
         ]);
     }
 

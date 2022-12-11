@@ -2,23 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Studio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
 
-    public function home()
+    public function index()
     {
-        return view('home', [
-            'title' => 'Pixel Studio | Home'
-        ]);
+        // return view('home', [
+        //     'title' => 'Pixel Studio | Home'
+        // ]);
     }
 
     public function create()
     {
         return view('login.login', [
-            'title' => 'Pixel Studio | Login'
+            'title' => 'Login | Pixel Studio'
         ]);
     }
 
@@ -32,11 +33,11 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             if (auth()->user()->level == 'Customer') {
                 $request->session()->regenerate();
-                return redirect()->intended('/');
+                return redirect()->intended('/home');
             }
             if (auth()->user()->level == 'Admin') {
                 $request->session()->regenerate();
-                return redirect()->intended('/dashboard');
+                return redirect()->intended('/dashboard/studio');
             }
         }
 
