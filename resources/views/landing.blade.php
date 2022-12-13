@@ -19,7 +19,7 @@
                 <div>
                     <h1 class="text-3xl mb-20">Studio</h1>
                 </div>
-                <div class="flex flex-nowrap justify-start items-center w-full overflow-x-auto p-4">
+                <div class="flex flex-nowrap justify-start items-center w-full overflow-x-auto p-4 scrollbar-hide">
                     {{-- content studio --}}
                     @foreach ($studios as $studio)
                         <div class="w-60 h-96 shadow-lg mr-3.5">
@@ -80,7 +80,7 @@
                                     <p class="text-sm text-center">{{ $paket->detail_paket }}</p>
                                 </div>
                                 <div>
-                                    <h1 class="text-center font-medium text-xl text-secondary mt-20">RP. {{ $paket->harga_paket }}</h1>
+                                    <h1 class="text-center font-medium text-xl text-secondary mt-2">RP. {{ $paket->harga_paket }}</h1>
                                 </div>
                             </div>
                         </div>

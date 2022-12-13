@@ -82,7 +82,7 @@
                                 <p class="text-sm text-center">{{ $paket->detail_paket }}</p>
                             </div>
                             <div>
-                                <h1 class="text-center font-medium text-xl text-secondary mt-20">RP. {{ $paket->harga_paket }}</h1>
+                                <h1 class="text-center font-medium text-xl text-secondary mt-10">RP. {{ $paket->harga_paket }}</h1>
                             </div>
                         </div>
                     </div>

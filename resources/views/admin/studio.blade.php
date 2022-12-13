@@ -137,23 +137,25 @@
                                                         <label for="deskripsi" class="block text-secondary text-sm mb-2">Deskripsi</label>
                                                         <textarea id="deskripsi" name="deskripsi_studio" class="w-full bg-neutral py-1.5 px-2 text-sm rounded-md text-secondary">{{ $studio->deskripsi_studio }}</textarea>
                                                     </div>
-                                                    <div class="flex items-center justify-center w-full">
-                                                        <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-52 rounded-lg cursor-pointer bg-neutral">
+                                                    <div>
+                                                        <input type="hidden" name="fotoLama" value="{{ $studio->foto }}">
+                                                        <input  name="foto" type="file" class="text-sm">
+                                                    </div>
+                                                    {{-- <div class="flex items-center justify-center w-full">
+                                                        <label for="foto" class="flex flex-col items-center justify-center w-full h-52 rounded-lg cursor-pointer bg-neutral">
                                                             <div class="flex flex-col items-center justify-center pt-5 pb-6">
                                                                 <svg aria-hidden="true" class="w-10 h-10 mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
                                                                 <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Klik untuk upload</span> atau tarik dan lepas</p>
                                                                 <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or JPEG (MAX. 10MB)</p>
                                                             </div>
-                                                            <input type="hidden" name="fotoLama" value="{{ $studio->foto }}">
-                                                            <input id="dropzone-file" name="foto" type="file" class="hidden">
                                                         </label>
-                                                    </div> 
+                                                    </div>  --}}
                                             </div>
                                         </div>
                                         <div>
                                             <!-- Modal footer -->
                                                 <div class="flex items-center justify-end w-full px-12 py-6 space-x-2">
-                                                    <button data-modal-toggle="defaultModal" type="submit" class="text-xs text-center py-2 px-6 bg-zinc-800 text-white rounded-md">Edit Studio</button>
+                                                    <button data-modal-toggle="defaultModalEdit{{ $studio->id }}" type="submit" class="text-xs text-center py-2 px-6 bg-zinc-800 text-white rounded-md">Edit Studio</button>
                                                 </div>
                                             </form>
                                         </div>
